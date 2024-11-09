@@ -1,8 +1,11 @@
-#Ejercicio 7: Número positivo, negativo o cero 
-#Escribe un programa que determine si un número es positivo, negativo o cero usando 
-#Enunciado: 
-#Solicita al usuario que ingrese un número y determina si es positivo, negativo o cero
-
+#Ejercicio 8: Determinación de año bisiesto 
+#Escribe un programa que determine si un año es bisiesto o no.
+# Enunciado: 
+#if .
+# Solicita al usuario que ingrese un año y determina si es bisiesto 
+# (divisible entre 4, pero no entre 
+#100, salvo que sea divisible entre 400).
+ 
 import sys
 import vlc
 import time
@@ -18,18 +21,17 @@ p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/re
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate if a number is positive or negative\n""")
-        awnser = float(input("        Enter the number: "))
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate if a year is a leap year or not\n""")
+        aYear = float(input("        Enter the year: "))
 
-        if awnser < 0:
-            print("\n        the number is negative")
-
-
-        elif awnser > 0:        
-            print("\n        the number is positive")
-
-        elif awnser == 0:
-            print("\n        the number is zero")
+        if (aYear % 4 == 0 and (aYear % 100 != 0 or aYear % 400 == 0) ):
+                print ("        It´s a leap year")
+            
+        else :
+            print ("        It is not a leap year")
+        
+        
+        
         continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
         
         if continueToAsk == "yes" :
