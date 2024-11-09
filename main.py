@@ -1,7 +1,11 @@
-# Ejercicio 10: Clasificación de notas 
-#Escribe un programa que asigne una calificación basada en una nota numérica.
+#Ejercicio 11: Conversión de temperaturas 
+#Escribe un programa que convierta grados Celsius a Fahrenheit o Fahrenheit a Celsius usando 
+#match .
 # Enunciado: 
-#Solicita una nota numérica y clasifícala como A (90-100), B (80-89), C (70-79), D (60-69), o F (<60).
+#Solicita al usuario que ingrese una temperatura y una escala (C o F). Convierte la temperatura a la 
+#escala opuesta usando 
+#match .
+
 
 import sys
 import vlc
@@ -18,28 +22,35 @@ p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/re
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate your score note based on your points\n""")
-        note = int(input("        Enter your note: "))
-
-        if note < 0:
-            print ("        Wrong note\n")
-            
-        elif note < 60:
-            print ("        You get a  F\n")
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the fahrenheit or celcius as the case may be\n""")
+        temp = int(input(f"""        What conversion you want to do :
+        1) for C to F
+        2) for F to C
         
-        elif note < 70:
-            print ("        You get a D\n ")
+        """))
 
-        elif note < 80:
-            print ("        You get a C\n ")
-        elif note < 90:
-            print ("        You get a B\n ")
-            
-        elif note <= 100:
-            print ("        You get a A\n ")
-        
-        else:
-            print ("        Your note is out of range\n ")
+        if temp == 1 or temp == 2:    
+            match temp:
+                case 1:
+                    print("        You select celcius to fahrenheit\n")
+                    nTemp = float(input("        Enter the Celcius temperature: "))
+
+                    f =  ((9/5)*nTemp) + 32
+
+                    print (f"        The temperarure in fahrenheit degrees is: {round(f,2)} \n")
+
+                case 2:
+                    print("        You select fahrenheit to celcius\n")
+                    nTemp = float(input("        Enter the fahrenheit temperature: "))
+
+                    c =  (nTemp - 32)*(5/9)
+
+                    print (f"        The temperarure in fahrenheit degrees is: {round(c,2)} \n")
+
+
+        else :
+            print("       Enter the correct request")                
+                
         
         
         continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
@@ -84,7 +95,7 @@ while True:
             break
     
     except:
-        print("    Its not a valid number\n") 
+        print("    Its not a valid request\n") 
         continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
         
         if continueToAsk == "yes" :
