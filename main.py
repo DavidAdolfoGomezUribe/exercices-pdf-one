@@ -1,12 +1,15 @@
-#Ejercicio 3: Calculadora básica
-#Utiliza match para implementar una calculadora simple.
-#Enunciado:
-#Crea una calculadora que solicite dos números y una operación matemática (+, -, *, /). Usa match
-#para realizar la operación correspondiente.
+#Ejercicio 4: Determinación del tipo de triángulo 
+#match 
+#Escribe un programa que determine el tipo de triángulo en función de sus lados usando 
+#if .
+# Enunciado: 
+#Solicita al usuario que ingrese las longitudes de los tres lados de un triángulo. Determina si el 
+#triángulo es equilátero, isósceles o escaleno.
 
 import sys
 import vlc
 import time
+import math
 
 name = input("Hello,please enter your name:")
 
@@ -16,43 +19,20 @@ p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/re
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for a basic calculator. Select the operation that you want to do (+,-,/,*) \n""")
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate a triangle type based on its sides \n""")
 
-        variable = str(input("        "))
+        sideA = float(input("        Enter the A side: "))
+        sideB = float(input("        Enter the B side: "))
+        sideC = float(input("        Enter the C side: "))
 
-        if  (variable != "*" and variable != "-" and variable != "/" and variable != "+"):
-            print("        Insert a correct operator")
-        
-        else :
-        
-            match variable:
-                case "+":
-                    a = float(input("       Enter the first number: "))
-                    b = float(input("       Enter the second number: "))
-                    total = a + b
-                    print(f"        your total is {total} \n")
-                case "-":
-                    a = float(input("       Enter the first number: "))
-                    b = float(input("       Enter the second number: "))
-                    total = a - b
-                    print(f"        your total is {total} \n")
-                case "/":
-                    a = float(input("       Enter the first number: "))
-                    b = float(input("       Enter the second number: "))
-                        
-                    if b != 0:
-                        total = a / b
-                        print(f"        your total is {total} \n")
-                    
-                    else :
-                        print("     The division by Zero is not possible ") 
-                    
-                case "*":
-                    a = float(input("       Enter the first number: "))
-                    b = float(input("       Enter the second number: "))
-                    total = a * b
-                    print(f"       Your total is {total} \n")
-                
+        if not (sideA + sideB > sideC and sideC + sideB > sideA and sideA + sideC > sideB ):
+            raise ValueError
+        if sideA == sideB == sideC :
+            print ("\n        This is an equilateral triangle\n")    
+        elif sideA == sideB or sideB == sideC or sideC == sideA : 
+            print ("\n        This is an isoceles triangle\n")
+        else:    
+            print ("\n        This is an escalene triangle\n")        
 
         continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
         
@@ -96,7 +76,7 @@ while True:
             break
     
     except:
-        print("    Its not a valid number\n") 
+        print("    Its not a valid triangle\n") 
         continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
         
         if continueToAsk == "yes" :
@@ -139,4 +119,4 @@ while True:
 
 
 
-#Last line of code 
+ #Last line of code 
