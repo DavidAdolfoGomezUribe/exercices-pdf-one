@@ -1,10 +1,7 @@
-# Ejercicio 9: Clasificación de edades 
-#Escribe un programa que clasifique a una persona en función de su edad.
+# Ejercicio 10: Clasificación de notas 
+#Escribe un programa que asigne una calificación basada en una nota numérica.
 # Enunciado: 
-#Solicita la edad de la persona e indica si es niño (0-12 años),
-#adolescente (13-17 años), adulto (18
-#64 años) o anciano (65 años o más).
-#
+#Solicita una nota numérica y clasifícala como A (90-100), B (80-89), C (70-79), D (60-69), o F (<60).
 
 import sys
 import vlc
@@ -21,23 +18,28 @@ p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/re
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for know your growth stage based on your age\n""")
-        aYear = float(input("        Enter the year: "))
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate your score note based on your points\n""")
+        note = int(input("        Enter your note: "))
 
-        if aYear <= 0:
-            print ("        Wrong age\n")
+        if note < 0:
+            print ("        Wrong note\n")
             
-        elif aYear <= 12:
-            print ("        You are a child\n")
+        elif note < 60:
+            print ("        You get a  F\n")
         
-        elif aYear <= 17:
-            print ("        You are a teenager\n ")
+        elif note < 70:
+            print ("        You get a D\n ")
 
-        elif aYear <= 64:
-            print ("        You are an adult\n ")
+        elif note < 80:
+            print ("        You get a C\n ")
+        elif note < 90:
+            print ("        You get a B\n ")
             
+        elif note <= 100:
+            print ("        You get a A\n ")
+        
         else:
-            print ("        You are an old man\n ")
+            print ("        Your note is out of range\n ")
         
         
         continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
@@ -125,4 +127,4 @@ while True:
 
 
 
-#Last line of code 
+ #Last line of code 
