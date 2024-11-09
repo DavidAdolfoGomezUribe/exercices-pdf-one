@@ -1,10 +1,10 @@
-#Ejercicio 4: Determinación del tipo de triángulo 
-#match 
-#Escribe un programa que determine el tipo de triángulo en función de sus lados usando 
-#if .
+#Ejercicio 5: Días de la semana 
+#Escribe un programa que, dado un número del 1 al 7, imprima el día correspondiente de la 
+#semana usando 
+#match .
 # Enunciado: 
-#Solicita al usuario que ingrese las longitudes de los tres lados de un triángulo. Determina si el 
-#triángulo es equilátero, isósceles o escaleno.
+#Solicita al usuario un número del 1 al 7 y muestra el día de la semana correspondiente (1 = Lunes, 
+#7 = Domingo)
 
 import sys
 import vlc
@@ -16,23 +16,18 @@ name = input("Hello,please enter your name:")
 #Disclaimer, For use this program properly you need to instal VLC for python use this command " pip install python-vlc "
 p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/refs/heads/main/music/chad.mp3")    
 
+daysOfWeek=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate a triangle type based on its sides \n""")
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the day of the week based on the numbres (1 to 7) \n""")
+        aDay = int(input("        ")) 
 
-        sideA = float(input("        Enter the A side: "))
-        sideB = float(input("        Enter the B side: "))
-        sideC = float(input("        Enter the C side: "))
-
-        if not (sideA + sideB > sideC and sideC + sideB > sideA and sideA + sideC > sideB ):
-            raise ValueError
-        if sideA == sideB == sideC :
-            print ("\n        This is an equilateral triangle\n")    
-        elif sideA == sideB or sideB == sideC or sideC == sideA : 
-            print ("\n        This is an isoceles triangle\n")
-        else:    
-            print ("\n        This is an escalene triangle\n")        
+        if aDay > 0 and aDay <= 7 :
+            print(f"\n        For the number {aDay}. Your day is : ",daysOfWeek[ aDay-1 ],"\n")        
+            
+        else:
+            print("\n        Enter a valid day\n")
 
         continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
         
@@ -76,7 +71,7 @@ while True:
             break
     
     except:
-        print("    Its not a valid triangle\n") 
+        print("    Its not a valid number\n") 
         continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
         
         if continueToAsk == "yes" :
@@ -119,4 +114,4 @@ while True:
 
 
 
- #Last line of code 
+#Last line of code 
