@@ -1,11 +1,11 @@
-#Ejercicio 8: Determinación de año bisiesto 
-#Escribe un programa que determine si un año es bisiesto o no.
+# Ejercicio 9: Clasificación de edades 
+#Escribe un programa que clasifique a una persona en función de su edad.
 # Enunciado: 
-#if .
-# Solicita al usuario que ingrese un año y determina si es bisiesto 
-# (divisible entre 4, pero no entre 
-#100, salvo que sea divisible entre 400).
- 
+#Solicita la edad de la persona e indica si es niño (0-12 años),
+#adolescente (13-17 años), adulto (18
+#64 años) o anciano (65 años o más).
+#
+
 import sys
 import vlc
 import time
@@ -21,15 +21,23 @@ p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/re
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate if a year is a leap year or not\n""")
+        print(f"""\nHello Mrs/Ms {name} this is a program for know your growth stage based on your age\n""")
         aYear = float(input("        Enter the year: "))
 
-        if (aYear % 4 == 0 and (aYear % 100 != 0 or aYear % 400 == 0) ):
-                print ("        It´s a leap year")
+        if aYear <= 0:
+            print ("        Wrong age\n")
             
-        else :
-            print ("        It is not a leap year")
+        elif aYear <= 12:
+            print ("        You are a child\n")
         
+        elif aYear <= 17:
+            print ("        You are a teenager\n ")
+
+        elif aYear <= 64:
+            print ("        You are an adult\n ")
+            
+        else:
+            print ("        You are an old man\n ")
         
         
         continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
