@@ -1,8 +1,9 @@
-#Ejercicio 13: Comparación de tres números 
-#Escribe un programa que determine el mayor de tres números usando 
+# Ejercicio 14: Adivinanza de letras 
+#Escribe un programa que permita al usuario adivinar una letra secreta usando 
 #Enunciado: 
-#if .
-#Solicita al usuario que ingrese tres números y determina cuál es el mayor.
+#match .
+# El programa contiene una letra secreta (por ejemplo, "A"). El usuario debe adivinar la letra, y el 
+#programa le indicará si acertó o no
 
 import sys
 import vlc
@@ -15,20 +16,28 @@ name = input("Hello,please enter your name:")
 #Disclaimer, For use this program properly you need to instal VLC for python use this command " pip install python-vlc "
 p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/refs/heads/main/music/chad.mp3")    
 
-
+char = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+,'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+]
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate max number of three numbers\n""")
-        nOne = float(input(f"""        Enter the first number: """))
-        nTwo = float(input(f"""        Enter the second number: """))
-        nThree = float(input(f"""        Enter the third number: """))
+        print(f"""\nHello Mrs/Ms {name} this is a program for adivinate a character\n""")
         
-        numbers = max(nOne,nTwo,nThree) 
+        rand = random.choice(char).strip().upper()
 
-        print(f"""\n        The mayor number is : {(numbers)}\n""")
+        #print(rand) use to kwon what letter is.
 
-        continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
+        awnser =   input("        Enter a letter: ").strip().upper()
+        while True:
+            match awnser == rand:
+                case True:
+                    print(f"        Congratulations you adivinated the letter was {awnser}\n")
+                    break
+                case False:
+                    awnser =   input("\n        Its another letter,try again:").strip().upper()
+
+        continueToAsk = input("    Do you want to play again? : ").strip().lower()
         
         if continueToAsk == "yes" :
             pass
@@ -71,7 +80,7 @@ while True:
     
     except:
         print("    Its not a valid number\n") 
-        continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
+        continueToAsk = input("    Do you want to play again? : ").strip().lower()
         
         if continueToAsk == "yes" :
             pass
@@ -113,4 +122,4 @@ while True:
 
 
 
-#Last line of code 
+ #Last line of code 
