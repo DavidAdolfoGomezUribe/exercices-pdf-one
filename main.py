@@ -1,9 +1,9 @@
-# Ejercicio 14: Adivinanza de letras 
-#Escribe un programa que permita al usuario adivinar una letra secreta usando 
-#Enunciado: 
-#match .
-# El programa contiene una letra secreta (por ejemplo, "A"). El usuario debe adivinar la letra, y el 
-#programa le indicará si acertó o no
+# Ejercicio 15: Cálculo del salario neto 
+#Escribe un programa que calcule el salario neto de un empleado después de aplicar impuestos.
+# Enunciado: 
+#Solicita al usuario su salario bruto y su país de residencia. Calcula el salario neto aplicando 
+#impuestos: el 20% para residentes de "País A", el 15% para "País B" y el 10% para "País C". Si el 
+#país no está en la lista, aplica un 25% de impuestos
 
 import sys
 import vlc
@@ -16,28 +16,48 @@ name = input("Hello,please enter your name:")
 #Disclaimer, For use this program properly you need to instal VLC for python use this command " pip install python-vlc "
 p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/refs/heads/main/music/chad.mp3")    
 
-char = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-,'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-]
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for adivinate a character\n""")
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the tax rate on your country\n""")
         
-        rand = random.choice(char).strip().upper()
 
-        #print(rand) use to kwon what letter is.
+        sCountry = (input(f"""        Selec your country:
+        1) For country A 
+        2) For country B
+        3) For country C
+        (Press enter if your country its not in this list, the tax rate will be 25% )
+        """))
 
-        awnser =   input("        Enter a letter: ").strip().upper()
-        while True:
-            match awnser == rand:
-                case True:
-                    print(f"        Congratulations you adivinated the letter was {awnser}\n")
-                    break
-                case False:
-                    awnser =   input("\n        Its another letter,try again:").strip().upper()
+        
+        if sCountry == "1":
+            tax = 0.20
+            salary = abs(float(input("        Insert your salary: ")))
+            fSalary = salary - (salary * tax ) 
+            print(f"\n        For your salary of {salary}$ and a tax rate of {tax*100}%. Your real inconme after tax is: {fSalary}$")
+        
+        elif sCountry == "2":
+            tax = 0.15
+            salary = abs(float(input("        Insert your salary: ")))
+            fSalary = salary - (salary * tax ) 
+            print(f"\n        For your salary of {salary}$ and a tax rate of {tax*100}%. Your real inconme after tax  is: {fSalary}$")
+        
+        elif sCountry == "3":
+            tax = 0.10
+            salary = abs(float(input("        Insert your salary: ")))
+            fSalary = salary - (salary * tax ) 
+            print(f"\n        For your salary of {salary}$ and a tax rate of {tax*100}%. Your real inconme after tax  is: {fSalary}$")
+    
+        elif sCountry == "":
+            tax = 0.25
+            salary = abs(float(input("        Insert your salary: ")))
+            fSalary = salary - (salary * tax ) 
+            print(f"\n        For your salary of {salary}$ and a tax rate of {tax*100}%. Your real inconme after tax  is: {fSalary} $")
+        else:
+            print ("        Enter a correct input")
+    
 
-        continueToAsk = input("    Do you want to play again? : ").strip().lower()
+        continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
         
         if continueToAsk == "yes" :
             pass
@@ -80,7 +100,7 @@ while True:
     
     except:
         print("    Its not a valid number\n") 
-        continueToAsk = input("    Do you want to play again? : ").strip().lower()
+        continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
         
         if continueToAsk == "yes" :
             pass
@@ -89,6 +109,7 @@ while True:
             p.audio_set_volume(75)                 
             p.play()            
             lines = [
+                "                                               ",
                 "                                               ",
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⣀⣀⣠⣤⣤⣄⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠤⠖⠊⠉⠁⠀⠀ ⠀⠀⠀⠀⠀⠀⠉⠙⠲⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
@@ -122,4 +143,4 @@ while True:
 
 
 
- #Last line of code 
+#Last line of code 
