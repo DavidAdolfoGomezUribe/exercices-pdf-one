@@ -1,11 +1,8 @@
-#Ejercicio 11: Conversión de temperaturas 
-#Escribe un programa que convierta grados Celsius a Fahrenheit o Fahrenheit a Celsius usando 
-#match .
-# Enunciado: 
-#Solicita al usuario que ingrese una temperatura y una escala (C o F). Convierte la temperatura a la 
-#escala opuesta usando 
-#match .
-
+# Ejercicio 12: Calculadora de IMC (Índice de Masa Corporal) 
+#Escribe un programa que calcule el IMC y determine el estado de peso.
+#Enunciado: 
+#Solicita al usuario su peso (en kg) y su altura (en metros). Calcula el IMC y clasifícalo en bajo peso 
+#(<18.5), peso normal (18.5-24.9), sobrepeso (25-29.9), o obesidad (>=30).
 
 import sys
 import vlc
@@ -22,36 +19,25 @@ p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/re
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the fahrenheit or celcius as the case may be\n""")
-        temp = int(input(f"""        What conversion you want to do :
-        1) for C to F
-        2) for F to C
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the IMC risk\n""")
+        heigh = float(input(f"""        Enter your heigh : """))
+        mass = float(input(f"""        Enter your mass : """))
         
-        """))
+        if mass > 0 and heigh > 0:
+            imc = mass/(math.pow(heigh,2))
+            if imc < 18.5:
+                print(f"\n        For a IMC {round(imc,2)} you have low weight\n")
+            elif imc <= 24.9:
+                print(f"\n        For a IMC {round(imc,2)} you have normal weight\n")
+            elif imc <= 29.9:
+                print(f"\n        For a IMC {round(imc,2)} you have overweight\n")
 
-        if temp == 1 or temp == 2:    
-            match temp:
-                case 1:
-                    print("        You select celcius to fahrenheit\n")
-                    nTemp = float(input("        Enter the Celcius temperature: "))
-
-                    f =  ((9/5)*nTemp) + 32
-
-                    print (f"        The temperarure in fahrenheit degrees is: {round(f,2)} \n")
-
-                case 2:
-                    print("        You select fahrenheit to celcius\n")
-                    nTemp = float(input("        Enter the fahrenheit temperature: "))
-
-                    c =  (nTemp - 32)*(5/9)
-
-                    print (f"        The temperarure in fahrenheit degrees is: {round(c,2)} \n")
-
-
+            else:
+                print (f"\n        For a IMC {round(imc,2)} you are Obese\n")
+            
         else :
-            print("       Enter the correct request")                
-                
-        
+            print("\n        Positive numbers only\n")
+
         
         continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
         
@@ -95,7 +81,7 @@ while True:
             break
     
     except:
-        print("    Its not a valid request\n") 
+        print("    Its not a valid number\n") 
         continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
         
         if continueToAsk == "yes" :
@@ -138,4 +124,4 @@ while True:
 
 
 
- #Last line of code 
+#Last line of code 
