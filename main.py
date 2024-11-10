@@ -1,8 +1,8 @@
-# Ejercicio 12: Calculadora de IMC (Índice de Masa Corporal) 
-#Escribe un programa que calcule el IMC y determine el estado de peso.
+#Ejercicio 13: Comparación de tres números 
+#Escribe un programa que determine el mayor de tres números usando 
 #Enunciado: 
-#Solicita al usuario su peso (en kg) y su altura (en metros). Calcula el IMC y clasifícalo en bajo peso 
-#(<18.5), peso normal (18.5-24.9), sobrepeso (25-29.9), o obesidad (>=30).
+#if .
+#Solicita al usuario que ingrese tres números y determina cuál es el mayor.
 
 import sys
 import vlc
@@ -19,26 +19,15 @@ p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/re
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the IMC risk\n""")
-        heigh = float(input(f"""        Enter your heigh : """))
-        mass = float(input(f"""        Enter your mass : """))
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate max number of three numbers\n""")
+        nOne = float(input(f"""        Enter the first number: """))
+        nTwo = float(input(f"""        Enter the second number: """))
+        nThree = float(input(f"""        Enter the third number: """))
         
-        if mass > 0 and heigh > 0:
-            imc = mass/(math.pow(heigh,2))
-            if imc < 18.5:
-                print(f"\n        For a IMC {round(imc,2)} you have low weight\n")
-            elif imc <= 24.9:
-                print(f"\n        For a IMC {round(imc,2)} you have normal weight\n")
-            elif imc <= 29.9:
-                print(f"\n        For a IMC {round(imc,2)} you have overweight\n")
+        numbers = max(nOne,nTwo,nThree) 
 
-            else:
-                print (f"\n        For a IMC {round(imc,2)} you are Obese\n")
-            
-        else :
-            print("\n        Positive numbers only\n")
+        print(f"""\n        The mayor number is : {(numbers)}\n""")
 
-        
         continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
         
         if continueToAsk == "yes" :
