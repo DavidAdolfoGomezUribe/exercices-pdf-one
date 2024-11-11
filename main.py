@@ -1,11 +1,15 @@
-#Ejercicio 18: Sistema de evaluación de créditos universitarios 
-#Escribe un programa que calcule el número de créditos totales de un estudiante en base a las 
-#materias cursadas y el puntaje obtenido en cada una. El puntaje debe ser evaluado como 
-#aprobado o no aprobado.
+# Ejercicio 19: Conversión de calificaciones numéricas a letras 
+#Escribe un programa que convierta una calificación numérica en una letra de acuerdo a un 
+#sistema de calificación específico, usando 
+#match .
 # Enunciado: 
-#Solicita al usuario ingresar el número de materias que ha cursado. Para cada materia, solicita el 
-#puntaje y determina si ha aprobado o no (>= 60). Luego, calcula el número total de créditos del 
-#estudiante (cada materia aprobada otorga 3 créditos)
+#Solicita una calificación numérica (0-100) y convierte esa calificación a una letra usando el 
+#siguiente esquema:
+# A: 90-100
+# B: 80-89
+# C: 70-79
+# D: 60-69
+# F: 0-59
 
 import sys
 import vlc
@@ -20,55 +24,32 @@ p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/re
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the university subjects state and the amount of credist that you have acumulated \n""")
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate your note based on the score that you provide\n""")
 
-        
-        universitySubjectsAmount = int(input("        Enter the amount of subjects: "))
+        note = float(input("        Enter the score:"))
 
-        universitySubjects = []
-        notesSubjects=[]
-        counterA = 0
-        counterB = 0
-        
-        if universitySubjectsAmount > 0:
+
+        if note > 0 and note <=100:
+            match note :
+                case note if note < 60:
+                    print ("        Your final note is F\n")        
+
+                case note if note < 70:
+                    print ("        Your final note is D\n")        
+
+                case note if note < 80:
+                    print ("        Your final note is C\n")            
+
+                case note if note < 90:
+                    print ("        Your final note is B\n")        
+
+                case note if note <= 100:
+                    print ("        Your final note is A\n")        
+        else :
+            print("        Not a valid note\n")
             
-            while counterA < universitySubjectsAmount:                
-                
-                awnser = str(input("        Enter the subject:"))
-                universitySubjects.append(awnser)
-                
-                counterA +=  1
-            print("")
-        
-            for i in range(0,universitySubjectsAmount ):
-                while True:
-                    try:
-                        notes = float(input(f"        Note for {universitySubjects[i]}: ")) 
-                        if notes >= 0 :
-                            notesSubjects.append(notes)
-                            break
-                        else :
-                            print("       Its not a valid note\n")
-                            
-                    except:
-                        print("    Its not a valid number\n")    
 
-            print("")
 
-            for i in range(0,universitySubjectsAmount):
-                
-                if notesSubjects[i] >= 60 :
-                    print(f"        You approve {universitySubjects[i]}")
-                    counterB += 3
-                else :
-                    print(f"        You fail {universitySubjects[i]}")
-                
-            print(f"\n        And your total credit score is {counterB}")   
-        else:
-            print("        Its no a valid amount\n")
-        
-        
-        
         continueToAsk = input("    Do you want to calculate again?(YES/NO) : ").strip().lower()
         
         if continueToAsk == "yes" :
@@ -155,5 +136,4 @@ while True:
             break
 
 
-
- #Last line of code 
+#Last line of code 
