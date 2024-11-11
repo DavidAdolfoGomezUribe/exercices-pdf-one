@@ -1,9 +1,11 @@
-#Ejercicio 16: Cálculo del tiempo de viaje 
-#Escribe un programa que calcule el tiempo que tarda en llegar un automóvil a su destino.
-# Enunciado: 
-#Solicita al usuario la distancia a recorrer (en km) y la velocidad promedio del automóvil (en km/h). 
-#Calcula el tiempo de viaje en horas y minutos. Si la velocidad es mayor a 120 km/h, muestra un 
-#mensaje de advertencia
+#Ejercicio 17: Sistema de calificaciones con bonificaciones 
+#Escribe un programa que calcule la calificación final de un estudiante basándose en su calificación 
+#y si ha hecho tareas adicionales. Las tareas adicionales pueden darle un extra de puntos, pero el 
+#máximo de puntos no puede exceder 100.
+#Enunciado: 
+#Solicita la calificación del estudiante y pregunta si hizo tareas adicionales. Si la respuesta es "sí", 
+#añade un 5% extra a la calificación, pero si la calificación supera 100, ajústala a 100. Si la respuesta 
+#es "no", simplemente muestra la calificación original.
 
 import sys
 import vlc
@@ -17,34 +19,51 @@ name = input("Hello,please enter your name:")
 p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/refs/heads/main/music/chad.mp3")    
 
 
+
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the travel time for a car at certain speed\n""")
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the max note based on extra homeworks \n""")
 
-        km = float(input("        Enter the distant (Km): "))
-        carSpeed = float(input("        Enter the Speed (km/H): "))
+        baseNote = float(input("        Enter the base note: "))
+        counter = 0        
+        if baseNote > 0:
+            while True:
 
-        travelTime = km / carSpeed
-
-        hours = (int(travelTime))
-        minutes = (travelTime - hours) * 60
-        if travelTime > 0:
-            if carSpeed > 120: 
-                print("        CAUTION HIGH SPEED")
-
-            print(f"        The time travel is {hours} Hours and {round(minutes)} minuts ")
-        else: 
-            print("        No negative numbers permitted")
+                awnser = input("        Do you have extra homeworks?(YES/NO): ").strip().lower()
+                                
+                if baseNote >= 100:
+                    print(f"        Your final note is 100")
+                    break
+                elif awnser == "yes" :
+                    print(f"\n        Your base note now {round(baseNote,2)}")
+                    counter =+ counter + 1
+                    baseNote =+ (0.05*baseNote) + baseNote
+                    print(f"        Your actual note is {round(baseNote,2)} for {counter} homework\n")
+                    if baseNote >= 100:
+                        print(f"        Your final note is 100")
+                        break
+                
+                else:
+                    if counter > 0: 
+                        print(f"        Your final note is: {round(baseNote,2) } with {counter} homework \n")
+                    else:
+                        print(f"        Your final note is: {round(baseNote,2) } \n")
+                    break
+        else:
+            print("        No negative notes are permitted")
 
         
         
-        continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
+        
+        
+        
+        continueToAsk = input("    Do you want to calculate again?(YES/NO) : ").strip().lower()
         
         if continueToAsk == "yes" :
             pass
         
         else:
-                    
+            
             p.set_time(1000)        
             p.audio_set_volume(75)            
             p.play()
@@ -74,18 +93,19 @@ while True:
                                           
             for line in lines:
                 print(line)
-                time.sleep(0.41)
+                time.sleep(0.42)
             print("""    Thanks for using the program""")
 
             break
     
     except:
         print("    Its not a valid number\n") 
-        continueToAsk = input("    Do you want to calculate again? : ").strip().lower()
+        continueToAsk = input("    Do you want to calculate again?(YES/NO) : ").strip().lower()
         
         if continueToAsk == "yes" :
             pass
         else:
+            
             p.set_time(1000)   
             p.audio_set_volume(75)                 
             p.play()            
@@ -116,7 +136,7 @@ while True:
                                           
             for line in lines:
                 print(line)
-                time.sleep(0.41)
+                time.sleep(0.42)
             print("    Thanks for using the program ")
             
             sys.exit()
@@ -124,4 +144,4 @@ while True:
 
 
 
- #Last line of code 
+#Last line of code 
