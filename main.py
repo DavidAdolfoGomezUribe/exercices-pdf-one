@@ -1,11 +1,11 @@
-#Ejercicio 17: Sistema de calificaciones con bonificaciones 
-#Escribe un programa que calcule la calificación final de un estudiante basándose en su calificación 
-#y si ha hecho tareas adicionales. Las tareas adicionales pueden darle un extra de puntos, pero el 
-#máximo de puntos no puede exceder 100.
-#Enunciado: 
-#Solicita la calificación del estudiante y pregunta si hizo tareas adicionales. Si la respuesta es "sí", 
-#añade un 5% extra a la calificación, pero si la calificación supera 100, ajústala a 100. Si la respuesta 
-#es "no", simplemente muestra la calificación original.
+#Ejercicio 18: Sistema de evaluación de créditos universitarios 
+#Escribe un programa que calcule el número de créditos totales de un estudiante en base a las 
+#materias cursadas y el puntaje obtenido en cada una. El puntaje debe ser evaluado como 
+#aprobado o no aprobado.
+# Enunciado: 
+#Solicita al usuario ingresar el número de materias que ha cursado. Para cada materia, solicita el 
+#puntaje y determina si ha aprobado o no (>= 60). Luego, calcula el número total de créditos del 
+#estudiante (cada materia aprobada otorga 3 créditos)
 
 import sys
 import vlc
@@ -18,42 +18,54 @@ name = input("Hello,please enter your name:")
 #Disclaimer, For use this program properly you need to instal VLC for python use this command " pip install python-vlc "
 p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/refs/heads/main/music/chad.mp3")    
 
-
-
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the max note based on extra homeworks \n""")
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the university subjects state and the amount of credist that you have acumulated \n""")
 
-        baseNote = float(input("        Enter the base note: "))
-        counter = 0        
-        if baseNote > 0:
-            while True:
+        
+        universitySubjectsAmount = int(input("        Enter the amount of subjects: "))
 
-                awnser = input("        Do you have extra homeworks?(YES/NO): ").strip().lower()
-                                
-                if baseNote >= 100:
-                    print(f"        Your final note is 100")
-                    break
-                elif awnser == "yes" :
-                    print(f"\n        Your base note now {round(baseNote,2)}")
-                    counter =+ counter + 1
-                    baseNote =+ (0.05*baseNote) + baseNote
-                    print(f"        Your actual note is {round(baseNote,2)} for {counter} homework\n")
-                    if baseNote >= 100:
-                        print(f"        Your final note is 100")
-                        break
+        universitySubjects = []
+        notesSubjects=[]
+        counterA = 0
+        counterB = 0
+        
+        if universitySubjectsAmount > 0:
+            
+            while counterA < universitySubjectsAmount:                
                 
-                else:
-                    if counter > 0: 
-                        print(f"        Your final note is: {round(baseNote,2) } with {counter} homework \n")
-                    else:
-                        print(f"        Your final note is: {round(baseNote,2) } \n")
-                    break
-        else:
-            print("        No negative notes are permitted")
+                awnser = str(input("        Enter the subject:"))
+                universitySubjects.append(awnser)
+                
+                counterA +=  1
+            print("")
+        
+            for i in range(0,universitySubjectsAmount ):
+                while True:
+                    try:
+                        notes = float(input(f"        Note for {universitySubjects[i]}: ")) 
+                        if notes >= 0 :
+                            notesSubjects.append(notes)
+                            break
+                        else :
+                            print("       Its not a valid note\n")
+                            
+                    except:
+                        print("    Its not a valid number\n")    
 
-        
-        
+            print("")
+
+            for i in range(0,universitySubjectsAmount):
+                
+                if notesSubjects[i] >= 60 :
+                    print(f"        You approve {universitySubjects[i]}")
+                    counterB += 3
+                else :
+                    print(f"        You fail {universitySubjects[i]}")
+                
+            print(f"\n        And your total credit score is {counterB}")   
+        else:
+            print("        Its no a valid amount\n")
         
         
         
@@ -144,4 +156,4 @@ while True:
 
 
 
-#Last line of code 
+ #Last line of code 
