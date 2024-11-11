@@ -1,15 +1,13 @@
-# Ejercicio 19: Conversión de calificaciones numéricas a letras 
-#Escribe un programa que convierta una calificación numérica en una letra de acuerdo a un 
-#sistema de calificación específico, usando 
-#match .
-# Enunciado: 
-#Solicita una calificación numérica (0-100) y convierte esa calificación a una letra usando el 
-#siguiente esquema:
-# A: 90-100
-# B: 80-89
-# C: 70-79
-# D: 60-69
-# F: 0-59
+#Ejercicio 20: Sistema de estacionamiento con tarifas 
+#progresivas
+#Escribe un programa que calcule el costo de estacionamiento basado en el número de horas, con 
+#tarifas progresivas.
+#Enunciado: 
+#El costo de estacionamiento se calcula de la siguiente manera:
+#Primera hora: $5
+#Segunda a cuarta hora: $4 por hora
+#Más de cuatro horas: $3 por cada hora adicional
+#Solicita al usuario el número de horas de estacionamiento y calcula el costo total.
 
 import sys
 import vlc
@@ -24,29 +22,25 @@ p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/re
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate your note based on the score that you provide\n""")
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the parking tarif\n""")
 
-        note = float(input("        Enter the score:"))
+        hour = round(float(input("        Enter the time in hours:")))
+        
+        dolarRate = 0
 
-
-        if note > 0 and note <=100:
-            match note :
-                case note if note < 60:
-                    print ("        Your final note is F\n")        
-
-                case note if note < 70:
-                    print ("        Your final note is D\n")        
-
-                case note if note < 80:
-                    print ("        Your final note is C\n")            
-
-                case note if note < 90:
-                    print ("        Your final note is B\n")        
-
-                case note if note <= 100:
-                    print ("        Your final note is A\n")        
+        if hour > 0 :
+            if hour <= 1:
+                total = hour * 5
+                print(f"        The cost is {total}$\n")
+            elif hour <= 4:
+                total = 5 + ((hour - 1 ) * 4)
+                print(f"        The cost is {total}$\n")
+            elif hour > 4 :
+                total = 17 + (hour * 3)
+                print(f"        The cost is {total}$\n")
         else :
-            print("        Not a valid note\n")
+            
+            print("        Not a valid hour")                
             
 
 
@@ -136,4 +130,4 @@ while True:
             break
 
 
-#Last line of code 
+ #Last line of code 
