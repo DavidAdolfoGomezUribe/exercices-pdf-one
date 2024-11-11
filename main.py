@@ -1,13 +1,13 @@
-#Ejercicio 20: Sistema de estacionamiento con tarifas 
-#progresivas
-#Escribe un programa que calcule el costo de estacionamiento basado en el número de horas, con 
-#tarifas progresivas.
+# Ejercicio 21: Clasificación de triángulos por sus ángulos 
+#if .
+# Escribe un programa que clasifique un triángulo en agudo, obtuso o rectángulo según sus ángulos 
+#internos usando 
 #Enunciado: 
-#El costo de estacionamiento se calcula de la siguiente manera:
-#Primera hora: $5
-#Segunda a cuarta hora: $4 por hora
-#Más de cuatro horas: $3 por cada hora adicional
-#Solicita al usuario el número de horas de estacionamiento y calcula el costo total.
+#Solicita al usuario los tres ángulos de un triángulo y clasifícalo en:
+# Agudo: Todos los ángulos son menores a 90°.
+# Rectángulo: Un ángulo es exactamente 90°.
+# Obtuso: Un ángulo es mayor a 90°
+
 
 import sys
 import vlc
@@ -22,26 +22,26 @@ p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/re
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the parking tarif\n""")
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the triangle type (acute triangle, right triangle, obtuse triangle)\n""")
 
-        hour = round(float(input("        Enter the time in hours:")))
+        firstAngle = float(input("        Enter the fisrt angle: "))
+        secondAngle = float(input("        Enter the second angle: "))
+        thirAngle = float(input("        Enter the third angle: "))       
+
+        total = firstAngle + secondAngle + thirAngle
         
-        dolarRate = 0
+        if total != 180 :
+            print("\n        Its not a valid triangle ")
+        elif firstAngle < 90 and secondAngle < 90 and thirAngle <90 :
+            print("\n        Its an acute triangle")
+        elif firstAngle == 90 or secondAngle == 90 or thirAngle ==90:
+            print("\n        Its a rigth triangle")
+        elif firstAngle > 90 or secondAngle > 90 or thirAngle > 90:
+            print("\n        Its a obtuse triangle")
 
-        if hour > 0 :
-            if hour <= 1:
-                total = hour * 5
-                print(f"        The cost is {total}$\n")
-            elif hour <= 4:
-                total = 5 + ((hour - 1 ) * 4)
-                print(f"        The cost is {total}$\n")
-            elif hour > 4 :
-                total = 17 + (hour * 3)
-                print(f"        The cost is {total}$\n")
-        else :
-            
-            print("        Not a valid hour")                
-            
+        
+
+
 
 
         continueToAsk = input("    Do you want to calculate again?(YES/NO) : ").strip().lower()
