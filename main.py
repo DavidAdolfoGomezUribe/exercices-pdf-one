@@ -1,12 +1,10 @@
-# Ejercicio 21: Clasificación de triángulos por sus ángulos 
-#if .
-# Escribe un programa que clasifique un triángulo en agudo, obtuso o rectángulo según sus ángulos 
-#internos usando 
-#Enunciado: 
-#Solicita al usuario los tres ángulos de un triángulo y clasifícalo en:
-# Agudo: Todos los ángulos son menores a 90°.
-# Rectángulo: Un ángulo es exactamente 90°.
-# Obtuso: Un ángulo es mayor a 90°
+#Ejercicio 22: Suma de los primeros N números enteros 
+#Enunciado:
+# Escribe un programa que solicite al usuario un número entero positivo 
+#primeros n números enteros. Utiliza un ciclo 
+#n y calcule la suma de los 
+#for para realizar la suma.
+
 
 
 import sys
@@ -22,25 +20,19 @@ p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/re
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the triangle type (acute triangle, right triangle, obtuse triangle)\n""")
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the sum of the group of numbers\n""")
 
-        firstAngle = float(input("        Enter the fisrt angle: "))
-        secondAngle = float(input("        Enter the second angle: "))
-        thirAngle = float(input("        Enter the third angle: "))       
-
-        total = firstAngle + secondAngle + thirAngle
+        numberAmount = int(input("        Enter the amount of numbers: "))    
+        numberGroup=[]
+        if numberAmount > 0:
+            for i in range(1, numberAmount + 1):
+                numberGroup.append(i)
+            
+            print(f"        The result for amount of  {numberAmount} numbers is: {sum(numberGroup)}\n")
         
-        if total != 180 :
-            print("\n        Its not a valid triangle ")
-        elif firstAngle < 90 and secondAngle < 90 and thirAngle <90 :
-            print("\n        Its an acute triangle")
-        elif firstAngle == 90 or secondAngle == 90 or thirAngle ==90:
-            print("\n        Its a rigth triangle")
-        elif firstAngle > 90 or secondAngle > 90 or thirAngle > 90:
-            print("\n        Its a obtuse triangle")
-
-        
-
+        else:
+            print("        Positive numbers only\n")
+            
 
 
 
