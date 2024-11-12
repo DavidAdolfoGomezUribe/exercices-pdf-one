@@ -1,8 +1,12 @@
-# Ejercicio 23: Contador de vocales en una cadena 
+# Ejercicio 24: Factorial de un número 
 #Enunciado:
-# Escribe un programa que solicite al usuario una cadena de texto y cuente cuántas vocales (a, e, i, 
-#o, u) contiene. Usa un ciclo 
-#for para recorrer la cadena y realizar la cuenta
+# Escribe un programa que solicite al usuario un número entero positivo 
+#dicho número (
+# n! = 1 * 2 * 3 * ... * n). Usa un ciclo 
+#
+#
+# n y calcule el factorial de 
+#for para realizar el cálculo
 
 
 
@@ -19,19 +23,22 @@ p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/re
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the sum of the group of numbers\n""")
+        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the factorial for a number\n""")
 
-        numberAmount = int(input("        Enter the amount of numbers: "))    
-        numberGroup=[]
-        if numberAmount > 0:
-            for i in range(1, numberAmount + 1):
-                numberGroup.append(i)
-            
-            print(f"        The result for amount of  {numberAmount} numbers is: {sum(numberGroup)}\n")
+        aNumber = int(input("        Enter the number: "))   
+        factorial = [0]
         
+        a=1
+        if aNumber >= 0:
+            for i in range(1,(aNumber+1)):
+                
+                factorial.append(i)  
+                a =+ factorial[i]*a  
+                
+            print(f"        The result for {aNumber}! is : {a}\n")
         else:
-            print("        Positive numbers only\n")
-            
+            print("        Negative numbers its not allowed")
+
 
 
 
@@ -121,4 +128,4 @@ while True:
             break
 
 
- #Last line of code 
+#Last line of code 
