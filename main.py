@@ -1,10 +1,12 @@
-#Ejercicio 25: Números pares en un rango 
-#Enunciado:
-#
-# Escribe un programa que solicite al usuario dos números enteros, un valor de inicio y un valor de 
-#fin. El programa debe imprimir todos los números pares en ese rango, incluyendo los límites. Usa 
-#un ciclo 
-#for para recorrer el rango
+# Ejercicio 26: Adivina el número (con 
+#while
+# ) 
+#Enunciado: (random.randint(1, 100))
+# Escribe un programa que genere un número aleatorio entre 1 y 100 y permita al usuario 
+#adivinarlo. El programa debe dar pistas si el número ingresado es mayor o menor que el número 
+#secreto. Usa un ciclo 
+#while para permitir al usuario seguir intentando hasta que adivine el 
+#número
 
 
 
@@ -21,23 +23,25 @@ p = vlc.MediaPlayer("https://github.com/DavidAdolfoGomezUribe/clases-main/raw/re
 
 while True:
     try:
-        print(f"""\nHello Mrs/Ms {name} this is a program for calculate the factorial for a number\n""")
+        rand = random.randint(1,100)         
+        print(f"""\nHello Mrs/Ms {name} this is a program for adivinate a number based on the numbers  (1 to 100) \n""")
+        awnser = int(input("        Put the number: "))
+        
 
-        firstNumber = int(input("        Enter the first: "))   
-        secondNumner =int(input("        Enter the second number: "))
-        number=[firstNumber,secondNumner]
+        while True : 
+            if awnser < rand:
+                print("\n        the number is lower")
+                awnser = int(input("        Put other number: "))
+            elif awnser > rand:        
+                print("\n        the number is higher")
+                awnser = int(input("        Put other number: "))
+            elif awnser == rand:
+                print(f"        Excellent you have discovered the number that is {awnser}\n")
+                break
 
 
-        for i in range(firstNumber + 1,secondNumner ):
-            if i % 2 == 0 :
-                number.append(i)
 
-        print(f"\n        {number}")    
-
-
-
-
-        continueToAsk = input("    Do you want to calculate again?(YES/NO) : ").strip().lower()
+        continueToAsk = input("    Do you want to play again?(YES/NO) : ").strip().lower()
         
         if continueToAsk == "yes" :
             pass
@@ -80,7 +84,7 @@ while True:
     
     except:
         print("    Its not a valid number\n") 
-        continueToAsk = input("    Do you want to calculate again?(YES/NO) : ").strip().lower()
+        continueToAsk = input("    Do you want to play again?(YES/NO) : ").strip().lower()
         
         if continueToAsk == "yes" :
             pass
