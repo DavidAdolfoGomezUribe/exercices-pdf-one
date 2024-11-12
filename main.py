@@ -1,9 +1,8 @@
-#Ejercicio 22: Suma de los primeros N números enteros 
+# Ejercicio 23: Contador de vocales en una cadena 
 #Enunciado:
-# Escribe un programa que solicite al usuario un número entero positivo 
-#primeros n números enteros. Utiliza un ciclo 
-#n y calcule la suma de los 
-#for para realizar la suma.
+# Escribe un programa que solicite al usuario una cadena de texto y cuente cuántas vocales (a, e, i, 
+#o, u) contiene. Usa un ciclo 
+#for para recorrer la cadena y realizar la cuenta
 
 
 
