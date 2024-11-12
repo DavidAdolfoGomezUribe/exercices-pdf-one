@@ -1,12 +1,10 @@
-# Ejercicio 24: Factorial de un número 
+#Ejercicio 25: Números pares en un rango 
 #Enunciado:
-# Escribe un programa que solicite al usuario un número entero positivo 
-#dicho número (
-# n! = 1 * 2 * 3 * ... * n). Usa un ciclo 
 #
-#
-# n y calcule el factorial de 
-#for para realizar el cálculo
+# Escribe un programa que solicite al usuario dos números enteros, un valor de inicio y un valor de 
+#fin. El programa debe imprimir todos los números pares en ese rango, incluyendo los límites. Usa 
+#un ciclo 
+#for para recorrer el rango
 
 
 
@@ -25,19 +23,16 @@ while True:
     try:
         print(f"""\nHello Mrs/Ms {name} this is a program for calculate the factorial for a number\n""")
 
-        aNumber = int(input("        Enter the number: "))   
-        factorial = [0]
-        
-        a=1
-        if aNumber >= 0:
-            for i in range(1,(aNumber+1)):
-                
-                factorial.append(i)  
-                a =+ factorial[i]*a  
-                
-            print(f"        The result for {aNumber}! is : {a}\n")
-        else:
-            print("        Negative numbers its not allowed")
+        firstNumber = int(input("        Enter the first: "))   
+        secondNumner =int(input("        Enter the second number: "))
+        number=[firstNumber,secondNumner]
+
+
+        for i in range(firstNumber + 1,secondNumner ):
+            if i % 2 == 0 :
+                number.append(i)
+
+        print(f"\n        {number}")    
 
 
 
